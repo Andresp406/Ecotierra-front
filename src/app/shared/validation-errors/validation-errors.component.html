@@ -1,0 +1,32 @@
+<small class="text-danger" *ngIf="selectorName.errors?.required && !selectorName?.pristine ">
+    El  campo es requerido
+  </small>
+  
+  <small class="text-danger" *ngIf="selectorName.errors?.maxlength && !selectorName?.pristine && selectorName.touched">
+    El  campo no puede exceder {{maxlenght}} caracteres
+  </small>
+  
+  <small class="text-danger" *ngIf="selectorName.errors?.minlength && !selectorName?.pristine && selectorName.touched">
+    El  campo de ser mayor a {{minlenght}} caracteres
+  </small>
+  
+  <small class="text-danger" *ngIf="selectorName.errors?.pattern && !selectorName?.pristine && selectorName.touched">
+     El formato no es valido
+  </small>
+  
+  <small class="text-danger" *ngIf="selectorName.errors?.email && selectorName.touched">
+    El formato no es valido
+  </small>
+  
+  <small class="text-danger" *ngIf="selectorName.errors?.confirmation && selectorName.touched">
+    Las claves no coinciden
+  </small>
+  
+  <small class="text-danger" *ngIf="selectorName.errors?.min && selectorName.touched">
+    El Año de produccion debe estar entre {{minlenght}} - {{maxlenght}}
+  </small>
+  
+  <small class="text-danger" *ngIf="selectorName.errors?.max && selectorName.touched">
+    El Año de producción debe estar entre {{minlenght}} - {{maxlenght}}
+  </small>
+  

@@ -1,0 +1,61 @@
+<app-header [title]="title"> </app-header>
+<div class="text-center">{{total_price}}</div>
+<div class="contenedor limpiarEstilos">
+    <div class="agregar limpiarEstilos">
+        <div class="agregar_contenedor" style="margin-bottom: 10px">
+
+            <div class="alert alert-danger" role="alert" *ngIf="errors != null">
+                <ul>
+                    <li *ngFor="let error of errors">{{error}}</li>
+                </ul>
+            </div>
+
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <select class="agregar_descripcion" [(ngModel)]="client_id">
+            <option value="">Seleccione el cliente</option> 
+            <option [value]="client.id" *ngFor="let client of clientes" >{{client.full_name}}</option>
+        </select>
+            </div>
+        </div>
+        <form [formGroup]="formularios" (ngSubmit)="submit()">
+            <div class="agregar_contenedor " style="margin-bottom: 10px">
+
+                <input type="text" formControlName="product_name" placeholder="Nombre del producto" class="agregar_descripcion" autocomplete="off" /><br />
+                <app-validation-errors [formulario]="formularios" formControlLabel="product_name" [minlenght]=2>
+                </app-validation-errors>
+            </div>
+
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <input type="text" formControlName="unit_price" placeholder="Precio unitario" class="agregar_descripcion" (keyup)="calculoPrecioTotal()" autocomplete="off" /> <br>
+                <app-validation-errors [formulario]="formularios" formControlLabel="unit_price" [minlenght]=2></app-validation-errors>
+            </div>
+
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <input type="text" formControlName="discount_percent" placeholder="Porcentaje de descuento" class="agregar_descripcion" autocomplete="off" />
+            </div>
+
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <select class="agregar_descripcion" formControlName="state">
+                        <option value="paid">Pagado</option>
+                        <option value="pending">Pendiente</option>
+                        </select>
+            </div>
+
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <input type="text" formControlName="total_price" placeholder="Numero de Identificacion" (keyup)="calculoPrecioTotal()" class="agregar_descripcion" autocomplete="off" />
+            </div>
+
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <input type="text" formControlName="amount" placeholder="Fecha de nacimiento" (keyup)="calculoPrecioTotal()" class="agregar_descripcion" autocomplete="off" />
+            </div>
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <button class="btn btn-outline-primary" type="submit" [disabled]="formularios.invalid">
+            Agregar
+            </button>
+                <a class="btn btn-outline-secondary m-2" routerLink="/" type="button">
+            Home
+        </a>
+            </div>
+        </form>
+    </div>
+</div>

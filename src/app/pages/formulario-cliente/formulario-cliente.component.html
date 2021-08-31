@@ -1,0 +1,46 @@
+<app-header [title]="title"> </app-header>
+
+
+
+<div class="contenedor limpiarEstilos">
+    <form [formGroup]="formularios" (ngSubmit)="submit()">
+        <div class="agregar limpiarEstilos">
+
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <input type="text" formControlName="first_name" placeholder="Nombre" class="agregar_descripcion" autocomplete="off" /><br />
+                <app-validation-errors [formulario]="formularios" formControlLabel="first_name" [minlenght]=2>
+                </app-validation-errors>
+            </div>
+
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <input type="text" formControlName="last_name" placeholder="Apellido" class="agregar_descripcion" autocomplete="off" /> <br>
+                <app-validation-errors [formulario]="formularios" formControlLabel="last_name" [minlenght]=2></app-validation-errors>
+            </div>
+
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <input type="text" formControlName="email" placeholder="Correo Electronico" class="agregar_descripcion" autocomplete="off" /><br>
+                <app-validation-errors [formulario]="formularios" formControlLabel="email" [nombreCampo]></app-validation-errors>
+
+            </div>
+
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <input type="text" formControlName="dni" placeholder="Numero de Identificacion" class="agregar_descripcion" autocomplete="off" /><br>
+                <span class="text-danger" *ngFor="let error of errors">{{error}}</span>
+            </div>
+
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <input type="date" formControlName="birth_date" placeholder="Fecha de nacimiento" class="agregar_descripcion" autocomplete="off" /><br>
+                <app-validation-errors [formulario]="formularios" formControlLabel="birth_date"></app-validation-errors>
+
+            </div>
+            <div class="agregar_contenedor" style="margin-bottom: 10px">
+                <button class="btn btn-outline-primary" type="submit" [disabled]="formularios.invalid">
+          Agregar
+        </button>
+                <a class="btn btn-outline-secondary m-2" routerLink="/" type="button">
+            Home
+        </a>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+<app-header [title]="title"> </app-header>
+<div class="container">
+    <app-select-all-client *ngIf="!filterDate" (onChangeClient)="cambioCliente($event)"></app-select-all-client>
+    <app-filter-date-client *ngIf="filterDate" (onChangeDates)="cambioCliente($event)"></app-filter-date-client>
+    <div class="container-row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Nombre producto</td>
+                    <td>precio unitario</td>
+                    <td>% descuento</td>
+                    <td>Estado</td>
+                    <td>Cantidad</td>
+                    <td>Monto total</td>
+                </tr>
+            </thead>
+            <tbody *ngFor="let sale of sales">
+                <tr>
+                    <td>{{ sale.product_name }}</td>
+                    <td>{{ sale.unit_price }}</td>
+                    <td>{{ sale.discount_percent }}</td>
+                    <td>{{ sale.state }}</td>
+                    <td>{{ sale.amount }}</td>
+                    <td>{{ sale.total_price }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

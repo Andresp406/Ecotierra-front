@@ -1,0 +1,36 @@
+<app-header [title]="title">
+</app-header>
+<div class="container pb-5">
+    <div class="d-flex justify-content-center ">
+        <div class="m-2">
+            <button type="button" class="btn btn-outline-primary" routerLink="/formulario-cliente">Crear cliente</button>
+        </div>
+        <div class="m-2">
+            <button type="button" class="btn btn-outline-secondary" routerLink="/">Home</button>
+        </div>
+    </div>
+    <div class="container-row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Apellido</td>
+                    <td>Correo Electronico</td>
+                    <td>Identificacion</td>
+                    <td>Edad</td>
+                    <td>Acciones</td>
+                </tr>
+            </thead>
+            <tbody *ngFor="let cliente of clientes">
+                <tr>
+                    <td>{{ cliente.first_name }}</td>
+                    <td>{{ cliente.last_name }}</td>
+                    <td>{{ cliente.email }}</td>
+                    <td>{{ cliente.dni }}</td>
+                    <td>{{ cliente.years }}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

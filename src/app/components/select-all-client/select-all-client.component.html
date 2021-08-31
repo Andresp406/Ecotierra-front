@@ -1,0 +1,11 @@
+<div class="form-group mb-5 mt-5">
+    <label for="" class="mb-1"> <strong> Seleccione el cliente </strong></label>
+    <select #client class="form-control" (change)="cambioCliente(client.value)">
+      <option [value]="client.id" *ngFor="let client of clientes">
+        {{ client.full_name }}
+      </option>
+    </select>
+    <a class="btn btn-outline-secondary m-2" routerLink="/" type="button">
+      Home
+  </a>
+</div>
